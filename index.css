@@ -1,0 +1,130 @@
+@import url(globals.css);
+
+@media (max-width: 1024px) {
+    .horse-img{
+        display: none;
+    }
+
+    .tetris-img{
+        display: none;
+    }
+}
+
+body{
+    font-family: "poppins", sans-serif;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.form-box {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: auto;
+    justify-self: center;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+
+    
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    border-radius: 16px;
+    justify-content: center;
+    justify-items: center;
+    justify-self: center;
+    width: 100%;
+}
+
+input{
+    background-color: var(--light-blue);
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    width: 100%;
+    height: 36px;
+    font-family: "poppins", sans-serif;
+    color: var(--gray-placeholder);
+    font-size: 1rem;
+    
+}
+
+input::placeholder {
+    color: var(--gray-placeholder);
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--blue-games);
+    transition: .2s;
+    transform: translateY(-2px) scale(1.03);
+}
+
+
+
+button {
+   height: 36px;
+    width: 100%;
+    background: var(--primary-blue);
+    color: white;
+    border: none;
+    border-radius: 16px;
+    font-family: "poppins", sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #388be0;
+}
+
+h1 {
+    color: var(--gray-title);
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 32px;
+    letter-spacing: 1px;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.logo-chess {
+     width: 30px;
+    height: auto;
+    vertical-align: middle;
+    fill: var(--gray-title);
+    transition: transform 0.4s;
+    cursor: pointer;
+}
+
+.logo-chess:hover {
+    transform: scaleX(-1);
+}
+
+.tetris-img{
+      position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 270px;
+    height: auto;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.horse-img{
+    position: fixed;
+    right: 100px;
+    top: 150px;
+    width: auto;
+    height: 300px;
+    z-index: 0;
+    pointer-events: none;
+}

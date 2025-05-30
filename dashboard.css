@@ -1,0 +1,138 @@
+@import url(globals.css);
+
+
+body{
+   font-family: "poppins", sans-serif;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+
+}
+
+nav{
+    width: 100%;
+    height:auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+    justify-items: center
+}
+
+h1{
+    display: flex;
+    align-items: center;
+     color: var(--gray-title);
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-align: center;
+    
+}
+
+.logo-chess{
+    width: 30px;
+    height: auto;
+    margin-left: 2px;
+    fill: var(--gray-title);
+
+    align-self: center;
+}
+
+.logo-create{
+    width: 40px;
+    height: 40px;
+    
+    fill: var(--primary-blue)
+}
+
+.options{
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    justify-content: space-between;
+    margin: 30px 0;
+}
+
+.options span{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.options p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--black);
+   
+    height: 35px;
+    padding: 0 16px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--light-blue);
+    box-shadow: 0 4px 0 var(--gray-title); /* Sombra inferior sólida */
+    cursor: pointer;
+    text-align: center;
+    
+}
+
+.heart-icon{
+    width: 35px;
+    height: auto;
+    fill: var(--red);
+}
+
+.filters-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+
+}
+
+.filters-box button{
+    width: max-content;
+    height: 35px;
+    padding: 0 16px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--primary-blue);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.filters-box button:first-child{
+    background-color: var(--red);
+    box-shadow: 0 4px 0 #a82330; /* Sombra inferior sólida */
+
+    
+}
+
+.filters-box button:nth-child(2){
+    background-color: var(--yellow);
+    box-shadow: 0 4px 0 #ffc41d; /* Sombra inferior sólida */
+
+    
+}
+
+.filters-box button:last-child{
+    background-color: var(--green);
+    box-shadow: 0 4px 0 #298c75; /* Sombra inferior sólida */
+
+}
+
+.table-area{
+    width: 100%;
+    height: 100%;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+}

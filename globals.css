@@ -1,0 +1,42 @@
+:root{
+    --gray-title: #7995bd;
+    --gray-placeholder: #7995bd;
+    --gray-description: #8d8d8d;
+    --light-blue: #dbeaff;
+    --primary-blue: #5099ff;
+    --blue-check: #3fbeff;
+    --blue-games: #9cc5ff;
+    --black: #292f33;
+    --red: #c6302c;
+    --yellow: #ffd150;
+    --green: #2ecf6e;
+    --light-green: #befde1;
+    --light-yellow: #fdf9be;
+    --light-red: #fdbebe;
+
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    z-index: 1;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url(fondo.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    opacity: 0.02;
+    z-index: -1;
+    pointer-events: none;
+}
