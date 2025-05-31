@@ -25,12 +25,11 @@ nav{
 h1{
     display: flex;
     align-items: center;
-     color: var(--gray-title);
+    color: var(--gray-title);
     font-size: 1.5rem;
     font-weight: 500;
     letter-spacing: 1px;
-    text-align: center;
-    
+    text-align: center; 
 }
 
 .logo-chess{
