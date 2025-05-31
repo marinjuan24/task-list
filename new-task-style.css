@@ -81,8 +81,71 @@ h1{
     padding: 10px;
     border: none;
     border-radius: 10px;
-    outline: none;
     background-color: var(--light-blue);
     font-size: 1.2rem;
     color: var(--gray-placeholder)
+}
+
+.create-input:focus{
+    outline-color: var(--blue-check);
+}
+
+.filters-title{
+    width: 100%;
+    font-size: 1.4rem;
+    padding: 10px;
+}
+
+.filters-boxs{
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+.btn-priority{
+    padding: 12px 15px;
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fbfbfb;
+    cursor: pointer;
+}
+
+.red{
+    background: var(--red);
+}
+
+.yellow{
+    background: var(--yellow);
+}
+
+.green{
+    background: var(--green);
+}
+
+.btn-priority:hover{
+    box-shadow: 0 0 10px #888;
+}
+
+.btn{
+    width: 100%;
+    margin-top: 30px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #fbfbfb;
+    background: var(--primary-blue);
+    cursor: pointer;
+}
+
+.btn:hover{
+    background: var(--blue-check);
+    box-shadow: 0 0 10px #888;
 }
