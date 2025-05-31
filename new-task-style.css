@@ -94,6 +94,7 @@ h1{
     width: 100%;
     font-size: 1.4rem;
     padding: 10px 0;
+    color: var(--black);
 }
 
 .filters-boxs{
