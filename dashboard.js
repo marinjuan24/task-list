@@ -14,20 +14,24 @@ document.addEventListener('DOMContentLoaded', () => {
     lifeCounter.textContent = localStorage.getItem('vidas') || '0';
 
     // Cargar tareas de localStorage (más recientes primero)
-    const tareas = JSON.parse(localStorage.getItem('tareas')) || [];
-    tableArea.innerHTML = '';
-    tareas.slice().reverse().forEach(tarea => {
-        const div = document.createElement('div');
-        div.className = `table-item ${tarea.prioridad}`;
-        div.innerHTML = `
-            <p>${tarea.nombre}</p>
-            <div class="item-actions">
-                <button class="check-btn" title="Completar">&#10003;</button>
-                <button class="cross-btn" title="No completado">&#10005;</button>
-            </div>
-        `;
-        tableArea.appendChild(div);
-    });
+    function renderTareas() {
+        const tareas = JSON.parse(localStorage.getItem('tareas')) || [];
+        tableArea.innerHTML = '';
+        tareas.slice().reverse().forEach((tarea, idx, arr) => {
+            const div = document.createElement('div');
+            div.className = `table-item ${tarea.prioridad}`;
+            div.dataset.index = arr.length - 1 - idx; // Guardar el índice real
+            div.innerHTML = `
+                <p>${tarea.nombre}</p>
+                <div class="item-actions">
+                    <button class="check-btn" title="Completar">&#10003;</button>
+                    <button class="cross-btn" title="No completado">&#10005;</button>
+                </div>
+            `;
+            tableArea.appendChild(div);
+        });
+    }
+    renderTareas();
 
     // Filtros
     function applyFilter(filter) {
@@ -50,12 +54,21 @@ document.addEventListener('DOMContentLoaded', () => {
     tableArea.addEventListener('click', function(e) {
         if (e.target.classList.contains('check-btn')) {
             const item = e.target.closest('.table-item');
-            if (item) item.remove();
-            // Actualizar vidas en localStorage y en pantalla
-            let value = parseInt(lifeCounter.textContent, 10) || 0;
-            value += 1;
-            lifeCounter.textContent = value;
-            localStorage.setItem('vidas', value.toString());
+            if (item) {
+                // Eliminar del localStorage
+                const tareas = JSON.parse(localStorage.getItem('tareas')) || [];
+                const idx = parseInt(item.dataset.index, 10);
+                tareas.splice(idx, 1);
+                localStorage.setItem('tareas', JSON.stringify(tareas));
+                // Eliminar del DOM
+                item.remove();
+                // Actualizar vidas en localStorage y en pantalla
+                let value = parseInt(lifeCounter.textContent, 10) || 0;
+                value += 1;
+                lifeCounter.textContent = value;
+                localStorage.setItem('vidas', value.toString());
+            }
         }
+        // Aquí puedes poner el código del cross-btn/modal si lo necesitas
     });
 });
