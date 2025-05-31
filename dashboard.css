@@ -66,14 +66,12 @@ h1{
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--black);
-   
+    color: var(--red);
     height: 35px;
-    padding: 0 16px;
+    font-size: 1.5rem;
+    font-weight: 600;
     border-radius: 10px;
     border: none;
-    background-color: var(--light-blue);
-    box-shadow: 0 4px 0 var(--gray-title); /* Sombra inferior sólida */
     cursor: pointer;
     text-align: center;
     
@@ -107,13 +105,18 @@ h1{
 }
 
 .filters-box button:first-child{
+    background-color: var(--black);
+    box-shadow: 0 4px 0 #000000;
+}
+
+.filters-box button:nth-child(2){
     background-color: var(--red);
     box-shadow: 0 4px 0 #a82330; /* Sombra inferior sólida */
 
     
 }
 
-.filters-box button:nth-child(2){
+.filters-box button:nth-child(3){
     background-color: var(--yellow);
     box-shadow: 0 4px 0 #ffc41d; /* Sombra inferior sólida */
 
@@ -131,11 +134,14 @@ h1{
 .table-area{
     width: 100%;
     height: 100%;
-    background-color: red;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    overflow-x: hidden; /* Desactiva el scroll horizontal */
+    overflow-y: auto;      /* Habilita el scroll vertical */
+    max-height: 400px;
+    
 }
 
 .table-item {
@@ -145,13 +151,15 @@ h1{
     height: 50px;
     border-radius: 8px;
     align-items: center;
-    padding: 0 20px;
+    padding: 20px;
+    border: 2px solid var(--gray-title);
 }
 
 .table-item p{
     font-size: 1.2rem;
     color:var(--black);
 }
+
 .table-item.high {
     background: var(--light-red);
 }
