@@ -93,7 +93,8 @@ h1{
 .filters-title{
     width: 100%;
     font-size: 1.4rem;
-    padding: 10px;
+    padding: 10px 0;
+    color: var(--black);
 }
 
 .filters-boxs{
