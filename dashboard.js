@@ -1,38 +1,61 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const filterButtons = document.querySelectorAll('.filters-box button');
-    const tableItems = document.querySelectorAll('.table-item');
+    const tableArea = document.querySelector('.table-area');
     const lifeCounter = document.querySelector('.life-counter');
+    const filterButtons = document.querySelectorAll('.filters-box button');
+
+    // Inicializar vidas y tareas si es la primera vez
+    if (localStorage.getItem('firstTime') !== 'no') {
+        localStorage.setItem('tareas', JSON.stringify([]));
+        localStorage.setItem('vidas', '0');
+        localStorage.setItem('firstTime', 'no');
+    }
+
+    // Mostrar vidas desde localStorage
+    lifeCounter.textContent = localStorage.getItem('vidas') || '0';
+
+    // Cargar tareas de localStorage (más recientes primero)
+    const tareas = JSON.parse(localStorage.getItem('tareas')) || [];
+    tableArea.innerHTML = '';
+    tareas.slice().reverse().forEach(tarea => {
+        const div = document.createElement('div');
+        div.className = `table-item ${tarea.prioridad}`;
+        div.innerHTML = `
+            <p>${tarea.nombre}</p>
+            <div class="item-actions">
+                <button class="check-btn" title="Completar">&#10003;</button>
+                <button class="cross-btn" title="No completado">&#10005;</button>
+            </div>
+        `;
+        tableArea.appendChild(div);
+    });
 
     // Filtros
+    function applyFilter(filter) {
+        document.querySelectorAll('.table-item').forEach(item => {
+            if (filter === 'all' || item.classList.contains(filter)) {
+                item.style.display = '';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+
     filterButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-            const filter = btn.className;
-            if (filter === 'all') {
-                tableItems.forEach(item => {
-                    item.style.display = '';
-                });
-            } else {
-                tableItems.forEach(item => {
-                    if (item.classList.contains(filter)) {
-                        item.style.display = '';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            }
+            applyFilter(btn.className);
         });
     });
 
     // Botón check: eliminar item y sumar vida
-    document.querySelectorAll('.check-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const item = this.closest('.table-item');
+    tableArea.addEventListener('click', function(e) {
+        if (e.target.classList.contains('check-btn')) {
+            const item = e.target.closest('.table-item');
             if (item) item.remove();
-            // Sumar 1 a life-counter
-            if (lifeCounter) {
-                let value = parseInt(lifeCounter.textContent, 10) || 0;
-                lifeCounter.textContent = value + 1;
-            }
-        });
+            // Actualizar vidas en localStorage y en pantalla
+            let value = parseInt(lifeCounter.textContent, 10) || 0;
+            value += 1;
+            lifeCounter.textContent = value;
+            localStorage.setItem('vidas', value.toString());
+        }
     });
 });

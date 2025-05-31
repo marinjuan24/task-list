@@ -149,3 +149,8 @@ h1{
     background: var(--blue-check);
     box-shadow: 0 0 10px #888;
 }
+
+.btn-priority.selected {
+    outline: 2px solid var(--primary-blue);
+    box-shadow: 0 0 20px #888;
+}

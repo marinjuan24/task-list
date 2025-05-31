@@ -29,16 +29,18 @@
                 <input type="text" name="nombre" class="create-input">
             </div>
 
-            <div class="filters-title"><p>Prioridad</p></div>
-            <div class="filters-boxs">
-                <button class="btn-priority red">Urgentes</button>
-                <button class="btn-priority yellow">Medios</button>
-                <button class="btn-priority green">No urgentes</button>
-            </div>
+        <div class="filters-title"><p>Prioridad</p></div>
+        <div class="filters-boxs">
+            <button type="button" class="btn-priority red" data-priority="high">Urgentes</button>
+            <button type="button" class="btn-priority yellow" data-priority="medium">Medios</button>
+            <button type="button" class="btn-priority green" data-priority="low">No urgentes</button>
+            <input type="hidden" name="prioridad" id="prioridad" value="high">
+        </div>
 
             <button class="btn">Crear Tarea</button>
         </form>
     </section>
 
 </body>
+<script src="newtask.js"></script>
 </html>
