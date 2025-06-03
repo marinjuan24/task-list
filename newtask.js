@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Selección de prioridad visual
+    //  Prioridad 
     document.querySelectorAll('.btn-priority').forEach(btn => {
         btn.addEventListener('click', function() {
             document.querySelectorAll('.btn-priority').forEach(b => b.classList.remove('selected'));

@@ -41,7 +41,13 @@ h1{
     align-self: center;
 }
 
-.logo-create{
+.nav-buttons{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.logo-create, .logo-exit{
     width: 40px;
     height: 40px;
     
@@ -111,21 +117,21 @@ h1{
 
 .filters-box button:nth-child(2){
     background-color: var(--red);
-    box-shadow: 0 4px 0 #a82330; /* Sombra inferior sólida */
+    box-shadow: 0 4px 0 #a82330;
 
     
 }
 
 .filters-box button:nth-child(3){
     background-color: var(--yellow);
-    box-shadow: 0 4px 0 #ffc41d; /* Sombra inferior sólida */
+    box-shadow: 0 4px 0 #ffc41d; 
 
     
 }
 
 .filters-box button:last-child{
     background-color: var(--green);
-    box-shadow: 0 4px 0 #298c75; /* Sombra inferior sólida */
+    box-shadow: 0 4px 0 #298c75;
 
 }
 
@@ -209,4 +215,63 @@ h1{
 
 
 /* MODAL */
+
+.modal-penalty {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    display: none;
+}
+.modal-content {
+    background: #dbeafe;
+    padding: 2rem 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    min-width: 320px;
+}
+.modal-content h2 {
+    margin-bottom: 0.5rem;
+    color: var(--black);
+    font-size: 2rem;
+}
+.modal-content p {
+    color: var(--gray-description);
+    margin-bottom: 1.5rem;
+}
+
+.modal-content span{
+    font-size: 1.5rem;
+}
+
+
+.modal-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    width: 100%;
+    margin: 0.5rem 0;
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 12px;
+    background: var(--blue-games);
+    color: var(--black);
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+    justify-content: center;
+    text-decoration: none;
+}
+.modal-btn.close {
+    background: #eee;
+    color: var(--gray-description);
+}
+.modal-btn:hover {
+    background: var(--primary-blue);
+    color: white;
+}
 
